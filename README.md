@@ -1,6 +1,6 @@
 # MD-GNN
 
-A pre-process method of graph against adversarial attacks
+This repository contains the implementation of  our paper：A Lightweight Metric Defence Strategy for Graph Neural Networks Against Poisoning Attacks accepted by ICICS2021.
 
 # Requirement
 
@@ -28,9 +28,9 @@ A pre-process method of graph against adversarial attacks
 - run MD-GCN
 
   ```python
-  # 支持的数据集：['cora', 'citeseer', 'cora_ml']
-  # 支持的攻击：['meta', 'nettack', 'random']
-  # MD支持的标准：['Cfs', 'Cfs1', 'Cfs2', 'Cfs3', 'Cfs4', 'Cs', 'Cs1', 'Jaccard1']
+  # Supported Datasets：['cora', 'citeseer', 'cora_ml']
+  # Supported Attacks：['meta', 'nettack', 'random']
+  # Supported Metrics：['Cfs', 'Cfs1', 'Cfs2', 'Cfs3', 'Cfs4', 'Cs', 'Cs1', 'Jaccard1']
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   
   data = Dataset(root='data/', name='cora', seed=15, require_mask=True)
@@ -56,32 +56,31 @@ A pre-process method of graph against adversarial attacks
   a = [0.05, 0.1]
   lr_list = [0.001, 0.005, 0.01, 0.05, 0.1]
   
-  # 运行实验1 ~ 5
+  # run experiments
   experiment1(dataset_list, attack_list,defense_list, root, root1, save_dir)
   experiment2(dataset_list, attack_list, threshold_list, root, root1, save_dir)
   experiment3(dataset_list, attack_list, root, root1, save_dir, a)
   experiment4(dataset_list, attack_list, defense_list, root, root1, save_dir, 'Cfs4')
   experiment5(dataset_list, attack_list, lr_list, root, root1, save_dir, 'Cfs', 10)
   
-  # 生成实验图片1 ~ 4
+  # generate experimental results
   figure1()
   figure2()
   figure3()
   figure4()
   
-  # 生成实验数据表格
   result()
   result_time()
   ```
-
+  
 - others
 
   ```python
-  run generate_adv.py #生成对抗样本
+  run generate_adv.py # generate adversarial attacks
   ```
 
   ```shell
-  run generate_clean.py #生成MD预处理后的图邻接矩阵
+  run generate_clean.py # generate pre-processed graph
   ```
 
   
@@ -89,12 +88,12 @@ A pre-process method of graph against adversarial attacks
 # Project Structure
 
 - MD-GNN
-  - adv-adj：保存对抗样本
-  - data：保存原始数据集
-  - defense：各种防御方案，包括我们的方案
-  - experiment：保存实验数据
-  - src：实验、绘图、绘表代码
+  - adv-adj
+  - data
+  - defense
+  - experiment
+  - src：source code
   - generate_adv.py
   - generate_clean.py
   - test.py
-  - utils.py：自定义的工具函数
+  - utils.py
