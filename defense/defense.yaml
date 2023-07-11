@@ -1,0 +1,56 @@
+device: 2
+
+save_clean_dir: '/home/mzx/Results_2023_5_23/defense/clean_acc/'
+save_attack_dir: '/home/mzx/Results_2023_4_24/defense/attack_acc/'
+#
+#targeted_attack: ['RND',]
+#targeted_attack: ['Nettack',]
+targeted_attack: ['SGAttack','Nettack','RND']
+#global_attack: ['Dice','Random',]
+#targeted_attack: ['SGAttack',]
+#global_attack: ['Dice','Random','Metattack',] #
+#global_attack: ['Metattack','Random',]
+#global_attack: ['Random',]
+#global_attack: ['Dice',]
+dataset_list: [
+     'acm',
+     'uai',
+     'citeseer',
+##     'cora',
+     'cora_ml',
+     'pubmed',
+     'photo',
+        # # 'polblogs',
+    # 'blogcatalog',
+        #'flickr',
+
+#     'cs',
+#    'physics',
+##    'dblp',
+#    'computers',
+    #
+    # 'lastfmasia', 'facebookpagepage', 'deezereurope',
+    # 'github',
+    # "DE", "EN", "ES", "FR", "PT", "RU",
+    # "USA",
+    # "Brazil",
+]
+
+defense_dict: {
+        'STABLE': 'STABLE',
+        'Mid_GCN': 'Mid_GCN',
+        'RGCN': 'R_GCN',
+#         'SimpGCN': 'Simp_GCN',
+         'GNNGuard': 'GNN_Guard',
+         'MedianGCN': 'Median_GCN',
+#        # 'ProGCN':'Pro_GCN',
+#         'ElasticGCN': 'Elastic_GCN',
+#
+#         'GCN': 'GCN_',
+#         'GAT': 'GAT_',
+#         'GCNSVD': 'GCN_SVD',
+#         'GCNJaccard': 'GCN_Jaccard',
+    }
+
+global_ptb_list: [0.05,0.10,0.15,0.20,0.25]
+target_ptb_list: [1.0, 2.0, 3.0, 4.0, 5.0]
